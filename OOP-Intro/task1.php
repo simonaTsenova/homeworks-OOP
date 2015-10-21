@@ -1,5 +1,4 @@
 <?php
-	
 	class Student {
 		private $name;
 		private $grade;
@@ -7,7 +6,7 @@
 		private $motivation;
 
 		public function __construct ($n = 'Unknown Student', $g = 'First', $avg = 6.00, $m = 0) {
-			echo "__construct for $n <br/> <br/>";
+			echo "__construct for $n <br/>";
 			$this->name = $n;
 			$this->grade = $g;
 			$this->gpa = $avg;
@@ -15,11 +14,13 @@
 		}  
 
 		public function show_info () {
+			echo "<br/>";
 			echo "Personl information: <br/>";
 			echo "Name: $this->name <br/>";
 			echo "Grade: $this->grade <br/>";
 			echo "GPA: $this->gpa <br/>";
 			echo "Motivation Coefficient: $this->motivation <br/>";
+			echo "<br/>";
 		}
 
 		public function go_to_school () {
@@ -56,7 +57,9 @@
 		$kate->show_info();
 		$kate->go_to_school();
 		$kate->do_test('maths', 5.9);
+		$kate->show_info();
 		$john = new Student('John', 'third', 5.55);
 		$john->show_info();
+		$john->go_to_school();
 	
 ?>
