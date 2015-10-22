@@ -203,10 +203,8 @@
 	$teacher2->add_subj($subj3);
 	$teacher1->show_dets();
 	$teacher2->show_dets();
-
 	
 	$student1->show_dets();
 	$student1->homework();
-	
 	$student2->study();
 ?>
