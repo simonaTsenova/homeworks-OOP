@@ -36,6 +36,18 @@
 			array_push($this->teachers, $new_teacher);
 			echo "You've added a new teacher. <br/>";
 		}
+
+		public function __set($name, $value) {
+			if(property_exists($this, $name)) {
+				$this->name = $value;
+			} else {
+				echo "Property '$name' not found. <br/>";
+			}
+		}
+
+		public function __get($name) {
+			return $this->$name;
+		}
 	}
 
 	class People {
@@ -167,6 +179,17 @@
 			echo "<br/>";
 		}
 
+		public function __set($name, $value) {
+			if(property_exists($this, $name)) {
+				$this->name = $value;
+			} else {
+				echo "Property '$name' not found. <br/>";
+			}
+		}
+
+		public function __get($name) {
+			return $this->$name;
+		}
 	}
 
 
