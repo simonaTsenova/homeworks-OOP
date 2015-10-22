@@ -3,6 +3,7 @@
 		private $class_name;
 		private $students;
 		private $teachers;
+		public static $maxStudents = 30;
 
 		public function __construct ($class_name) {
 			$this->class_name = $class_name;
@@ -28,8 +29,13 @@
 		}
 
 		public function add_students($new_student) {
-			array_push($this->students, $new_student);
-			echo "You've added a new student. <br/>";
+			$count_students = count($this->students);
+			if($count_students <= self::$maxStudents) {
+				array_push($this->students, $new_student);
+				echo "You've added a new student. <br/>";
+			} else {
+				echo "Can't add more students to this class. It's already filled. <br/>";
+			}
 		}
 
 		public function add_teachers($new_teacher) {
