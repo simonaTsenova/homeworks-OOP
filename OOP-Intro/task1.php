@@ -25,15 +25,15 @@
 			$this->motivation = 1;
 		}
 		private function study ($hours) {
-			return $hours;
-			$tiredness = 20 - $hours;
-			echo "$this->name is studying for $hours. He's trying hard to get better grades. <br/>";
-			if($tiredness < 10) {
+			$tiredness = 10 - $hours;
+			echo "$this->name is studying for $hours hours. He's trying hard to get better grades. <br/>";
+			if($tiredness < 5) {
 				echo "$this->name needs to take a rest immediately. <br/>";
 			} else {
 				echo "$this->name can study a little bit more. <br/>";
 			}
 			$this->motivation = 0;
+			return $hours;
 		}
 		private function do_homework () {
 			if ($this->motivation == 1) {
@@ -42,17 +42,27 @@
 				echo "$this->name can't do any homework now. Too tired. <br/>";
 			}
 		}
-		public function do_test ($subject, $grade) {
+		public function atHome($h) {
+			echo "$this->name is at home. <br/>";
+			$this->do_homework();
+			$study_hours = $this->study($h);
+			
+		}
+		public function do_test ($subject, $grade) {			
 			echo "$this->name is having a test on $subject and got $grade grade. <br/>";
 		}
+
+
 }
 		$kate = new Student('Kate');
 		$kate->show_info();
 		$kate->go_to_school();
 		$kate->do_test('maths', 5.9);
+		$kate->atHome(1);
 		$kate->show_info();
 		$john = new Student('John', 'third', 5.55);
 		$john->show_info();
 		$john->go_to_school();
-	
+		$john->show_info();
+		$john->atHome(10);
 ?>
